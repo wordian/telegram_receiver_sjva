@@ -153,9 +153,7 @@ class Logic(object):
     def receive_callback(msg):
         try:
             content_type, chat_type, chat_id = glance(msg)
-            #logger.debug(content_type)
-            #logger.debug(chat_type)
-            #logger.debug(chat_id)
+            chat_id = str(chat_id)
             if content_type == 'text':
                 if msg['text'] == '/bot2':
                     text = json.dumps(Logic.bot.getMe(), indent=2)
@@ -174,6 +172,7 @@ class Logic(object):
                             if tmp == chat_id:
                                 index = idx
                                 break
+                    logger.debug('index:%s', index)
                     if index != -1:
                         chat_id_send = ModelSetting.get('chat_id_send')
                         tmp = chat_id_send.split('|')[index].split(',')
