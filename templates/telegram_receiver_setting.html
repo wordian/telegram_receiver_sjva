@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+  {{ macros.setting_global_scheduler_button(arg['scheduler'], arg['is_running']) }}
+  <form id='setting' name='setting'>
+    {{ macros.setting_checkbox('auto_start', '시작시 자동실행', value=arg['auto_start'], desc=['On : 시작시 자동으로 실행합니다.']) }}
+    {{ macros.setting_input_text('bot_token', '수신 대기할 봇 토큰', value=arg['bot_token'], desc=None) }}
+    {{ macros.setting_input_text('chat_id_receive', '수신 Chat ID', value=arg['chat_id_receive'], desc=['메시지를 받을 Chat ID', '구분자 | ', '비어있는 경우 전체 메시지']) }}
+    {{ macros.setting_input_textarea('chat_id_send', '송신 Chat ID', value=arg['chat_id_send'], row='5', desc=['받은 메시지를 보낼 Chat ID', 'Chat ID 별 구분자 |', '하나의 메시지를 여러곳에 보낼 경우 구분자 , ']) }}
+    {{ macros.setting_button([['global_setting_save_btn', '저장']]) }}
+  </form>    
+</div>
+
+<script type="text/javascript">
+var package_name = 'telegram_receiver';
+var current_data = null;
+
+$(document).ready(function(){
+});
+
+// 스케쥴링 on / off
+$('#scheduler').change(function() {
+  var ret = $(this).prop('checked');
+  if (!ret) {
+    $.notify('<strong>이 스케쥴링은 중단 할 수 없습니다.</strong>', {
+      type: 'warning'
+    });
+    $('#scheduler').bootstrapToggle('on')
+    return
+  }
+  $.ajax({
+    url: '/' + package_name + '/ajax/scheduler',
+    type: "POST", 
+    cache: false,
+    data: {scheduler : ret},
+    dataType: "json",
+    success: function (list) {
+    }
+  });
+});
+
+</script>    
+{% endblock %}
