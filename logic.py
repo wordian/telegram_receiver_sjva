@@ -153,9 +153,9 @@ class Logic(object):
     def receive_callback(msg):
         try:
             content_type, chat_type, chat_id = glance(msg)
-            logger.debug(content_type)
-            logger.debug(chat_type)
-            logger.debug(chat_id)
+            #logger.debug(content_type)
+            #logger.debug(chat_type)
+            #logger.debug(chat_id)
             if content_type == 'text':
                 if msg['text'] == '/bot':
                     text = json.dumps(Logic.bot.getMe(), indent=2)
@@ -186,9 +186,9 @@ class Logic(object):
     @staticmethod
     def send_message(text, chat_id_list):
         try:
-            logger.debug('TEXT:%s', text)
+            #logger.debug('TEXT:%s', text)
             for tmp in chat_id_list:
-                logger.debug('chat id : %s', tmp)
+                #logger.debug('chat id : %s', tmp)
                 if tmp != '':
                     Logic.bot.sendMessage(tmp, text, disable_web_page_preview=True)
         except Exception as e: 
