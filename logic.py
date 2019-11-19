@@ -157,10 +157,10 @@ class Logic(object):
             #logger.debug(chat_type)
             #logger.debug(chat_id)
             if content_type == 'text':
-                if msg['text'] == '/bot':
+                if msg['text'] == '/bot2':
                     text = json.dumps(Logic.bot.getMe(), indent=2)
                     Logic.send_message(text, [chat_id])
-                elif msg['text'] == '/me':
+                elif msg['text'] == '/me2':
                     text = json.dumps(msg, indent=2)
                     Logic.send_message(text, [chat_id])
                 else:
