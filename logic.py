@@ -172,7 +172,6 @@ class Logic(object):
                             if tmp == chat_id:
                                 index = idx
                                 break
-                    logger.debug('index:%s', index)
                     if index != -1:
                         chat_id_send = ModelSetting.get('chat_id_send')
                         tmp = chat_id_send.split('|')[index].split(',')
