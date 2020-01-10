@@ -22,11 +22,12 @@ from framework.util import Util, AlchemyEncoder
 from system.logic import SystemLogic
             
 # 패키지
+package_name = __name__.split('.')[0]
+logger = get_logger(package_name)
 from logic import Logic
 from model import ModelSetting
 
-package_name = __name__.split('.')[0].split('_sjva')[0]
-logger = get_logger(package_name)
+
 
 blueprint = Blueprint(package_name, package_name, url_prefix='/%s' %  package_name, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
 
@@ -43,7 +44,7 @@ plugin_info = {
     'icon' : '',
     'developer' : 'soju6jan',
     'description' : '텔레그램 수신 메시지를 다른 곳에 전달하는 플러그인',
-    'home' : 'https://github.com/soju6jan/telegram_receiver_sjva',
+    'home' : 'https://github.com/soju6jan/telegram_receiver',
     'more' : '',
 }
 #########################################################

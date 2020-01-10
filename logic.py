@@ -19,10 +19,9 @@ from framework.logger import get_logger
 from framework.util import Util
 
 # 패키지
+from .plugin import package_name, logger
 from .model import ModelSetting
 
-package_name = __name__.split('.')[0].split('_sjva')[0]
-logger = get_logger(package_name)
 #########################################################
 
 class Logic(object):
