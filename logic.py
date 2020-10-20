@@ -55,7 +55,7 @@ class Logic(object):
             Logic.db_init()
 
             # 편의를 위해 json 파일 생성
-            from plugin import plugin_info
+            from .plugin import plugin_info
             Util.save_from_dict_to_json(plugin_info, os.path.join(os.path.dirname(__file__), 'info.json'))
 
             # 자동시작 옵션이 있으면 보통 여기서 

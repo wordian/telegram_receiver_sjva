@@ -24,8 +24,8 @@ from system.logic import SystemLogic
 # 패키지
 package_name = __name__.split('.')[0]
 logger = get_logger(package_name)
-from logic import Logic
-from model import ModelSetting
+from .logic import Logic
+from .model import ModelSetting
 
 
 
@@ -43,7 +43,7 @@ plugin_info = {
     'category_name' : 'tool',
     'icon' : '',
     'developer' : 'soju6jan',
-    'description' : '텔레그램 수신 메시지를 다른 곳에 전달하는 플러그인',
+    'description' : u'텔레그램 수신 메시지를 다른 곳에 전달하는 플러그인',
     'home' : 'https://github.com/soju6jan/telegram_receiver',
     'more' : '',
 }
@@ -51,9 +51,9 @@ plugin_info = {
 
 # 메뉴 구성.
 menu = {
-    'main' : [package_name, 'Telgegram Receiver'],
+    'main' : [package_name, u'Telgegram Receiver'],
     'sub' : [
-        ['setting', '설정'], ['log', '로그']
+        ['setting', u'설정'], ['log', u'로그']
     ], 
     'category' : 'tool',
 }  
