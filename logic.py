@@ -9,8 +9,8 @@ import json
 
 # third-party
 import telepot
-from telepot import Bot, glance
-from telepot.loop import MessageLoop
+from telepot2 import Bot, glance
+from telepot2.loop import MessageLoop
 
 # sjva 공용
 from framework import app, path_app_root, db, scheduler
